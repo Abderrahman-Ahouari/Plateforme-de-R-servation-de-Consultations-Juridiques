@@ -15,3 +15,11 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 }
+
+.input{
+    border-color: rgb(106, 78, 0);
+    border-width: 2px;
+    height: 38px;
+    background: transparent;
+    
+}
