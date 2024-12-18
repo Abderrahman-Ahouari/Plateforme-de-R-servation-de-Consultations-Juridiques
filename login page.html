@@ -9,22 +9,26 @@
   </head>
   <body>
 
-      <div class=" flex flex-col w-full gap-8  ">
-        <div class="login flex flex-col justify-around bg-yellow-600	  w-3/12 h-52">
-          <div class="flex flex-col gap-2 w-10/12 place-self-center">
-            <label for="email" class="text-lg text-yellow-950">email</label>
-            <input type="text" placeholder="enter your email" class="border-yellow-950 placeholder:text-black bg-transparent border-2 h-10 ">   
-          </div>
-          <div class="flex flex-col gap-2  w-10/12 place-self-center">
-            <label for="email" class="text-lg text-yellow-950">password</label>
-          <input type="text" placeholder="enter your password" class="border-yellow-950 placeholder:text-black bg-transparent border-2 h-10 ">
-          </div>
-           </div>
-           <div class="login bg-yellow-600 mt-36  w-3/12 h-14">
-           <p class="place-self-center mt-3">dont have an account? <a href="" class="text-yellow-950 font-semibold">Sign Up</a></p>
-           </div>
-       </div>
 
+<div class="login_container">
+  <div class="login_header ">
+   <p>login</p>
+  </div>
+  <div class="input_container">
+    <label for="email" class="label">email</label>
+    <input type="email" name="email" id="" placeholder="enter your email" class="input">    
+  </div>
+  <div class="input_container">
+    <label for="password" class="label">password</label>
+    <input type="password" name="email" id="" placeholder="enter your password" class="input">
+
+  </div>
+  <button type="submit" class="submit_button h-10 w-11/12">submit</button>
+
+</div>
+<div class="signup_link">
+  <p>don't have an account? <a href="" class="text-[#3E362E]">signup</a></p>
+</div>
    
   </body>
 </html>

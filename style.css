@@ -4,22 +4,107 @@
     box-sizing: border-box;
 }
 
-.dashboard{
-width: 100%;
-height: auto;
-
+.login_container{
+  margin-top: 160px;
+  height: 300px;
+  width: 25%;
+  background-color: #Ac8968;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  place-self : center;
+  justify-content: center;
+  gap: 25px;
+  border-radius: 15px;
 }
-.login{
-position: absolute;
-top: 50%; 
-left: 50%;
-transform: translate(-50%, -50%);
+.input_container{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  place-self: center;
 }
 
 .input{
-    border-color: rgb(106, 78, 0);
-    border-width: 2px;
-    height: 38px;
-    background: transparent;
-    
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border-color: #3E362E;
+  border-width: 2px;
+  
 }
+.input::placeholder{
+  color: #3E362E;
+}
+.label{
+  color: #3E362E;
+}
+
+.login_header p {
+  color: #3e342e;
+  margin-right: 285px;
+}
+
+.signup_link{
+  margin-top: 20px;
+  height: 60px;
+   width: 25%;
+  background-color: #Ac8968;
+  place-self : center;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  border-radius: 15px;
+
+}
+
+
+
+
+
+.signup_container{
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  background-color: #A69080;
+  width: 85%;
+  place-self: center;
+  margin-top: 55px;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+.client_login{
+  width: 35%;
+  height: 85%;
+  background: #Ac8968;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  place-items: center;
+
+}
+.submit_button{
+  background: #3e342e ;
+  color: #A69080;
+}
+.line{
+  display: flex;
+  flex-direction: row;
+}
+
+
+.lawyer_login{
+  width: 50%;
+  height: 85%;
+  border-radius: 25px;
+  background: #Ac8968;
+  display: grid;
+  grid-template-columns: 40% 40%;
+  grid-template-rows: auto auto auto;
+  align-items: center;
+  justify-content: center;
+  column-gap: px;
+}
+
