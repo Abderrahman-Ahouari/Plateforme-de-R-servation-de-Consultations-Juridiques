@@ -18,8 +18,8 @@ include('connection.php')
   <div class="login_header ">
 
    <p>login</p>
-  </div>f
-  <div class="input_container">git addg
+  </div>
+  <div class="input_container">
     <label for="email" class="label">email</label>
     <input type="email" name="email" id="" placeholder="enter your email" class="input">    
   </div>
@@ -29,11 +29,7 @@ include('connection.php')
   </div>
   <button type="submit" class="submit_button h-10 w-11/12">submit</button>
   </form>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $ins = ''   
-}
-?>  
+
 
 </div>
 <div class="signup_link">

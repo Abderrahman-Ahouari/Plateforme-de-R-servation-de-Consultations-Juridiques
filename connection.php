@@ -11,7 +11,7 @@ if (!$conn) {
 }
 
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,6 +19,6 @@ if (!$conn) {
     <title>Document</title>
 </head>
 <body>
-   ddddddddddddddddddddddddddd 
+    
 </body>
 </html>
