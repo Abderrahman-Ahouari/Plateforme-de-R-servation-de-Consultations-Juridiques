@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My_Lawyer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="user_profile.css">
 </head>
 <body>
     <header>
@@ -41,8 +42,82 @@
         </nav>
     </header>
     
+    <div class="container w-8/12" >
+        <div class="user-info">
+          <h2>User Information</h2>
+          <p><strong>First Name:</strong> John</p>
+          <p><strong>Last Name:</strong> Doe</p>
+          <p><strong>Email:</strong> john.doe@example.com</p>
+          <p><strong>Phone:</strong> +123456789</p>
+          <button class="btn" id="edit-btn">Edit Info</button>
+        </div>
+      </div>
+      
+      <div class="popup" id="popup">
+        <div class="popup-content">
+          <span class="close" id="close-popup">&times;</span>
+          <h3>Edit User Information</h3>
+          <form id="edit-form">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" value="John">
+      
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" value="Doe">
+      
+            <label for="email">Email</label>
+            <input type="email" id="email" value="john.doe@example.com">
+      
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" value="+123456789">
+      
+            <button type="button" class="btn" id="save-btn">Save</button>
+          </form>
+        </div>
+      </div>
+      
 
 
-
+      <section class="consultations-section">
+        <h2>Your Consultations</h2>
+        <table class="consultations-table">
+            <thead>
+                <tr>
+                    <th>Lawyer's Name</th>
+                    <th>Phone</th>
+                    <th>Consultation Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="consultations-list">
+                <!-- Example Row -->
+                <tr>
+                    <td>John Doe</td>
+                    <td>+123456789</td>
+                    <td>2024-12-20</td>
+                    <td>Pending</td>
+                    <td>
+                        <button class="modify-btn green-btn">Modify</button>
+                        <button class="cancel-btn red-btn">Cancel</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <!-- Modify Consultation Popup -->
+        <div id="modify-popup" class="popup hidden">
+            <div class="popup-content">
+                <span class="close-popup">&times;</span>
+                <h3>Modify Consultation</h3>
+                <form id="modify-form">
+                    <label for="consultation-date">Consultation Date</label>
+                    <input type="date" id="consultation-date" name="consultation-date" required />
+                    <button type="submit" class="save-btn">Save</button>
+                </form>
+            </div>
+        </div>
+    </section>
+      
+<script src="global.js"></script>
 </body>
 </html>
