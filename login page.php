@@ -18,7 +18,7 @@ include('connection.php')
   <div class="login_header ">
 
    <p>login</p>
-  </div>
+  </div>f
   <div class="input_container">git addg
     <label for="email" class="label">email</label>
     <input type="email" name="email" id="" placeholder="enter your email" class="input">    
