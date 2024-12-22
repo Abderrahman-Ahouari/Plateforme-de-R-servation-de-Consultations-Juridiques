@@ -3,7 +3,8 @@ include('connection.php');
 ?>
 
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+session_start();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
     // common info between client & lawyer
     $firstName = $_POST['firstname']; 
     $lastName = $_POST['lastname']; 
@@ -15,30 +16,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $speciality = $_POST['speciality']; 
     $biography = $_POST['biography']; 
 
-
+   $password_hashed = password_hash($password, PASSWORD_DEFAULT);
     if ($_POST['signup_type'] === "client") {
         echo "client is selected";
-        $insert_user = $conn->prepare( "insert into clients (nom, prenom, email, tele, mot_de_passe) values (?, ?, ?, ?,?) ");
-        $insert_user->bind_param("sssss", $firstName, $lastName, $email, $tele, $password);
-        $insert_user->execute();
+        $insert_client = $conn->prepare( "insert into clients (nom, prenom, email, tele, mot_de_passe) values (?, ?, ?, ?,?) ");
+        $insert_client->bind_param("sssss", $firstName, $lastName, $email, $tele, $password_hashed);
+        $insert_client->execute();
+        $_SESSION['user_id'] = $conn->insert_id;
+        $_SESSION['role'] = "client";   
+        $_SESSION['name'] = $firstname.' '.$lastname;     
+        $insert_client->close();  
 
     } elseif ($_POST['signup_type'] === "lawyer") {
-        $insert_user = $conn->prepare( "insert into clients (nom, prenom, email, tele, mot_de_passe, specialité, biographie) values (?, ?, ?, ?, ?, ?, ?) ");
-        $insert_user->bind_param("sssssss", $firstName, $lastName, $email, $tele, $password, $speciality, $biography);
-        $insert_user->execute();
-    } else {
-        echo "Nothing is selected"; 
+        $insert_lawyer = $conn->prepare( "insert into avocat (nom, prenom, email, tele, mot_de_passe, specialité, biographie) values (?, ?, ?, ?, ?, ?, ?) ");
+        $insert_lawyer->bind_param("sssssss", $firstName, $lastName, $email, $tele, $password_hashed, $speciality, $biography);
+        $insert_lawyer->execute();
+        $_SESSION['user_id'] = $conn->insert_id;    
+        $_SESSION['role'] = "lawyer";   
+        $_SESSION['name'] = $firstname.' '.$lastname;
+        $insert_lawyer->close();
     } 
 
-    
-    
-    
-
-
+    $conn->close();
+    header("location: http://localhost/Plateforme%20de%20R%C3%A9servation%20de%20Consultations%20Juridiques/lawyer_dashboard.php");
+    exit();
     }
-
-
-
 ?>
 
 
@@ -104,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      <label for="biographie" class="label w-11/12">select your speciality</label>
      <input type="text" name="biography" placeholder="there is no limit for the characters you can write in your biographie" class=" bg-transparent input w-11/12">
     </div>
-    <button id="lawyer_submit" type="submit" name="formLawyer" class="submit_button h-10 w-11/12 ml-36">submit</button>
+    <button id="info_submit" type="submit" name="formLawyer" class="submit_button h-10 w-11/12 ml-36">submit</button>
 </form>
 
 
@@ -133,6 +135,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         toggleFields();
        signup_type.addEventListener("change", toggleFields);
     });
+
+    
 </script>
 
 <!-- <script src="signup.js"></script> -->
